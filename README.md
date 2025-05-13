@@ -10,7 +10,7 @@ This project implements a real-time audio emotion recognition system using machi
 
 ## Dataset
 This project uses the RAVDESS (Ryerson Audio-Visual Database of Emotional Speech) dataset. You can download it from:
-https://zenodo.org/record/1188976
+`https://zenodo.org/record/1188976` with `Audio_Speech_Actors_01-24.zip` being used in particular.
 
 ## Setup Instructions
 
@@ -25,7 +25,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. Download the RAVDESS dataset and place it in the `data` folder
+3. Download the RAVDESS dataset and place it in the `data` folder as a directory named `RAVDESS`
 
 4. Run the application:
 ```bash
@@ -34,13 +34,13 @@ streamlit run app.py
 
 ## Project Structure
 ```
-├── app.py                 # Main Streamlit application
-├── model.py              # Model training and prediction code
-├── audio_processor.py    # Audio processing utilities
-├── data/                 # Dataset directory
-├── models/              # Saved model files
-├── requirements.txt     # Project dependencies
-└── README.md           # Project documentation
+├── app.py                                     # Main Streamlit application
+├── audio_emotion_recognition.ipynb            # Model training and prediction code
+├── audio_processor.py                         # Audio processing utilities
+├── data/RAVDESS                               # Dataset directory
+├── models/                                    # Saved model files
+└──  requirements.txt                          # Project dependencies
+
 ```
 
 ## Usage
