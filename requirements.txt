@@ -1,0 +1,11 @@
+numpy
+pandas
+librosa
+scikit-learn
+tensorflow
+streamlit
+sounddevice
+soundfile
+matplotlib
+seaborn 
+gradio
