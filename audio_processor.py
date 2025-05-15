@@ -1,9 +1,9 @@
 import librosa
 import numpy as np
-import sounddevice as sd
 import soundfile as sf
 import os
 from typing import Tuple, List
+import sounddevice as sd
 
 class AudioProcessor:
     def __init__(self, sample_rate: int = 22050, duration: int = 3):
@@ -19,6 +19,20 @@ class AudioProcessor:
             '07': 'disgust',
             '08': 'surprised'
         }
+
+    def record_audio(self, duration: int = None) -> Tuple[np.ndarray, int]:
+        """Record audio from microphone."""
+        if duration is None:
+            duration = self.duration
+            
+        print(f"Recording for {duration} seconds...")
+        recording = sd.rec(
+            int(duration * self.sample_rate),
+            samplerate=self.sample_rate,
+            channels=1
+        )
+        sd.wait()
+        return recording.flatten(), self.sample_rate
 
     def extract_features(self, audio_path: str) -> np.ndarray:
         """Extract features from audio file (matches notebook)."""
@@ -71,20 +85,6 @@ class AudioProcessor:
             [zcr_mean, zcr_std, rms_mean, rms_std, centroid_mean, centroid_std, rolloff_mean, rolloff_std]
         ])
         return features
-
-    def record_audio(self, duration: int = None) -> Tuple[np.ndarray, int]:
-        """Record audio from microphone."""
-        if duration is None:
-            duration = self.duration
-            
-        print(f"Recording for {duration} seconds...")
-        recording = sd.rec(
-            int(duration * self.sample_rate),
-            samplerate=self.sample_rate,
-            channels=1
-        )
-        sd.wait()
-        return recording.flatten(), self.sample_rate
 
     def save_audio(self, audio: np.ndarray, filename: str) -> str:
         """Save audio to file."""
