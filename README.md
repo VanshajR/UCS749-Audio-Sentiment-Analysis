@@ -2,6 +2,8 @@
 
 This project implements a real-time audio emotion recognition system using machine learning. It can analyze speech and predict the emotional state of the speaker.
 
+[![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://audio-sentiment-vanshajr.streamlit.app)
+
 ## Features
 - Real-time audio emotion recognition
 - Support for uploaded audio files
